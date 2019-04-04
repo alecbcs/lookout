@@ -1,0 +1,4 @@
+github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
+github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
+github.com/DataDrake/cuppa v1.0.4 h1:7fh/88pHFOyRnAHG0HylBMcg/ZhUKLFhVuRq0MEM4TI=
+github.com/DataDrake/cuppa v1.0.4/go.mod h1:iNOma7zUE2W8sOO4/ms8Z8Na0YX+9c9923KDZox340E=
