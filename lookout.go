@@ -1,9 +1,13 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/alecbcs/lookout/update"
 )
 
 func main() {
-	update.CheckUpdate("https://github.com/DataDrake/cuppa/archive/v1.0.4.tar.gz")
+	source := "https://github.com/DataDrake/cuppa/archive/v1.0.4.tar.gz"
+	version, location := update.CheckUpdate(source)
+	fmt.Println(version, location)
 }

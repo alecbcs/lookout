@@ -1,14 +1,12 @@
 package update
 
 import (
-	"fmt"
-
 	"github.com/DataDrake/cuppa/providers"
 	"github.com/DataDrake/cuppa/results"
 )
 
 // CheckUpdate checks a given URL for the latest available release.
-func CheckUpdate(archive string) {
+func CheckUpdate(archive string) (version string, location string) {
 
 	for _, p := range providers.All() {
 		name := p.Match(archive)
@@ -19,10 +17,7 @@ func CheckUpdate(archive string) {
 		if s != results.OK {
 			continue
 		}
-		loc := r.Location
-		ver := r.Version
-		fmt.Println(loc)
-		fmt.Println(ver)
-
+		return r.Version, r.Location
 	}
+	return "", ""
 }
