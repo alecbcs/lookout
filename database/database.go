@@ -4,14 +4,13 @@ import (
 	"database/sql"
 	"log"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/mattn/go-sqlite3" // Import sqlite3 driver for database interaction.
 )
 
-var db *sql.DB
-
-func init() {
+// Open opens a database and creates one if not found.
+func Open(databaseName string) (db *sql.DB) {
 	var err error
-	db, err = sql.Open("sqlite3", "./test.db")
+	db, err = sql.Open("sqlite3", databaseName)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -19,10 +18,11 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	return db
 }
 
 // Add inserts a new entry into the database.
-func Add(id string, url string, version string) {
+func Add(db *sql.DB, id string, url string, version string) {
 	err := db.Ping()
 	if err != nil {
 		log.Fatal(err)

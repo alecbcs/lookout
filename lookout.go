@@ -8,8 +8,9 @@ import (
 )
 
 func main() {
+	db := database.Open("./test.db")
 	source := "https://github.com/DataDrake/cuppa/archive/v1.0.4.tar.gz"
 	version, location := update.CheckUpdate(source)
 	fmt.Println(version, location)
-	database.Add("cuppa", location, version)
+	database.Add(db, "cuppa", location, version)
 }
