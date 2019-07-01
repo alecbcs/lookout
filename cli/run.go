@@ -1,8 +1,11 @@
 package cli
 
 import (
+	"fmt"
 	"log"
 	"sync"
+
+	"github.com/gookit/color"
 
 	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/alecbcs/lookout/database"
@@ -46,10 +49,16 @@ func runWorker(wg *sync.WaitGroup, input <-chan *results.Entry, output chan<- *r
 			log.Println("Unable to find: " + app.ID)
 			continue
 		}
-		if result.Location != app.LatestURL {
+		red := color.FgRed.Render("%s\n")
+		cyan := color.FgCyan.Render("%s\n")
+		if result.Version.Compare(app.CurrentVersion) < 0 {
+
 			app.LatestURL = result.Location
 			app.LatestVersion = result.Version
 			output <- app
+			fmt.Printf("%-15s: "+red, app.ID, "New Version Found")
+		} else {
+			fmt.Printf("%-15s: "+cyan, app.ID, "Up-To-Date")
 		}
 	}
 	defer wg.Done()

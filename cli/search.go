@@ -8,6 +8,7 @@ import (
 
 	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/alecbcs/lookout/database"
+	"github.com/gookit/color"
 )
 
 var Search = cmd.CMD{
@@ -29,10 +30,27 @@ func SearchRun(r *cmd.RootCMD, c *cmd.CMD) {
 	if err != nil {
 		log.Fatal("Unable to locate: " + args.ID)
 	}
-	fmt.Println("ID:             " + result.ID)
-	fmt.Println("LatestURL:      " + result.LatestURL)
-	fmt.Println("LatestVersion:  " + strings.Join(result.LatestVersion, "."))
-	fmt.Println("CurrentURL:     " + result.CurrentURL)
-	fmt.Println("CurrentVersion: " + strings.Join(result.CurrentVersion, "."))
-	fmt.Println("Up-To-Date:     " + strconv.FormatBool(result.UpToDate))
+	red := color.FgRed.Render("%-20s: %s\n")
+	green := color.FgGreen.Render("%-20s: %s\n")
+	white := "%-20s: %s\n"
+
+	id := green
+	latestURL := white
+	latestVersion := white
+	currentURL := white
+	currentVersion := white
+
+	if !result.UpToDate {
+		id = red
+		latestURL = green
+		latestVersion = green
+		currentURL = red
+		currentVersion = red
+	}
+	fmt.Printf(id, "Package ID", result.ID)
+	fmt.Printf(latestURL, "LatestURL", result.LatestURL)
+	fmt.Printf(currentURL, "CurrentURL", result.CurrentURL)
+	fmt.Printf(latestVersion, "LatestVersion", strings.Join(result.LatestVersion, "."))
+	fmt.Printf(currentVersion, "CurrentVersion", strings.Join(result.CurrentVersion, "."))
+	fmt.Printf("%-20s: %s\n", "Up-To-Date", strconv.FormatBool(result.UpToDate))
 }
