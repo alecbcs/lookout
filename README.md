@@ -1,4 +1,5 @@
 # lookout
+[![Go Report Card](https://goreportcard.com/badge/github.com/alecbcs/lookout)](https://goreportcard.com/report/github.com/alecbcs/lookout)
 
 Lookout is an upstream software respository watcher built for maintaining large collections of up-to-date applications.
 
