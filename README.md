@@ -27,7 +27,7 @@ Lookout is an upstream software respository watcher built for maintaining large 
 
 
 
-## Examples
+### Examples
 
 | Command | Example                                     |
 | ------- | ------------------------------------------- |
