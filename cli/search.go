@@ -11,6 +11,7 @@ import (
 	"github.com/gookit/color"
 )
 
+// Search gets an entry from the database and displays the relavent information.
 var Search = cmd.CMD{
 	Name:  "search",
 	Alias: "s",
@@ -19,10 +20,12 @@ var Search = cmd.CMD{
 	Run:   SearchRun,
 }
 
+// SearchArgs handles the search specific arguments passed to the command.
 type SearchArgs struct {
 	ID string
 }
 
+// SearchRun searched the database and displays the information.
 func SearchRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*SearchArgs)
 	db := database.Open("./test.db")

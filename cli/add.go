@@ -12,7 +12,8 @@ import (
 	"github.com/alecbcs/lookout/update"
 )
 
-var Add = cmd.CMD {
+// Add imports a new app entry into the database.
+var Add = cmd.CMD{
 	Name:  "add",
 	Alias: "a",
 	Short: "Add an entry to the database",
@@ -20,12 +21,15 @@ var Add = cmd.CMD {
 	Run:   AddRun,
 }
 
+// AddArgs handles the specifc arguments for the add command.
 type AddArgs struct {
 	ID      string
 	Version string
 	URL     string
 }
 
+// AddRun imports a new app entry into the database.
+// Will also check if the application is up-to-date before entering into the database.
 func AddRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*AddArgs)
 	db := database.Open("./test.db")
@@ -33,6 +37,7 @@ func AddRun(r *cmd.RootCMD, c *cmd.CMD) {
 	if !found {
 		log.Fatal("Unable to find " + args.ID + " " + args.URL)
 	}
+	// Create new entry struct
 	entry := results.New(
 		args.ID,
 		result.Location,

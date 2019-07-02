@@ -19,6 +19,8 @@ func Open(databaseName string) (db *sql.DB) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	// Create the appdata table if is doesn't already exist.
+	// This will also create the database if it doesn't exist.
 	_, err = db.Exec(
 		"CREATE TABLE IF NOT EXISTS appdata(" +
 			"id TEXT PRIMARY KEY," +
@@ -34,7 +36,8 @@ func Open(databaseName string) (db *sql.DB) {
 	return db
 }
 
-// Add isn't done yet
+// Add checks if an entry is already in the database and
+// if found updates the entry, else it adds the entry.
 func Add(db *sql.DB, entry *results.Entry) {
 	result, found := Get(db, entry.ID)
 	if found == nil {
@@ -47,6 +50,7 @@ func Add(db *sql.DB, entry *results.Entry) {
 
 // Insert adds a new entry into the database.
 func Insert(db *sql.DB, entry *results.Entry) {
+	// Ping to check that database connection still exists.
 	err := db.Ping()
 	if err != nil {
 		log.Fatal(err)
@@ -77,7 +81,7 @@ func Insert(db *sql.DB, entry *results.Entry) {
 	}
 }
 
-// Update is a work in progress
+// Update patches an existing db entry with new data.
 func Update(db *sql.DB, entry *results.Entry) {
 	err := db.Ping()
 	if err != nil {
@@ -107,7 +111,7 @@ func Update(db *sql.DB, entry *results.Entry) {
 	}
 }
 
-// Get finds and returns an entry from the database
+// Get finds and returns an entry from the database.
 func Get(db *sql.DB, id string) (*results.Entry, error) {
 	var (
 		latestURL      string

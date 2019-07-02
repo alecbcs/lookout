@@ -10,9 +10,9 @@ import (
 type Entry struct {
 	ID             string
 	LatestURL      string
-	LatestVersion  version.Version
+	LatestVersion  version.Version // Latest version is most up-to-date
 	CurrentURL     string
-	CurrentVersion version.Version
+	CurrentVersion version.Version // Current version is installed on system.
 	UpToDate       bool
 }
 
@@ -28,7 +28,7 @@ func New(id string, latest string, latestv version.Version, current string, curr
 	return entry
 }
 
-// Patch updates an entry with anothers information.
+// Patch updates an entry with non blank fields from another entry.
 func Patch(full *Entry, diff *Entry) {
 	if diff.CurrentURL != "" {
 		full.CurrentURL = diff.CurrentURL

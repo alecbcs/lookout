@@ -10,6 +10,7 @@ type GlobalFlags struct{}
 // Root is the main command.
 var Root *cmd.RootCMD
 
+// init creates the command interface and registers the possible commands.
 func init() {
 	Root = &cmd.RootCMD{
 		Name:  "lookout",

@@ -5,5 +5,6 @@ import (
 )
 
 func main() {
+	// Build the command line interface for lookout.
 	cli.Root.Run()
 }
