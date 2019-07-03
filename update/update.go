@@ -1,9 +1,16 @@
 package update
 
 import (
+	cuppa "github.com/DataDrake/cuppa/config"
 	"github.com/DataDrake/cuppa/providers"
 	"github.com/DataDrake/cuppa/results"
+	"github.com/alecbcs/lookout/config"
 )
+
+func init() {
+	// Port Lookout configuration to CUPPA
+	cuppa.Global.Github.Key = config.Conf.Github.Key
+}
 
 // CheckUpdate checks a given URL for the latest available release.
 func CheckUpdate(archive string) (*results.Result, bool) {

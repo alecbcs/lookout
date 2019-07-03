@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 	"github.com/gookit/color"
 )
@@ -28,7 +29,7 @@ type SearchArgs struct {
 // SearchRun searched the database and displays the information.
 func SearchRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*SearchArgs)
-	db := database.Open("./test.db")
+	db := database.Open(config.Conf.Database.Path)
 	result, err := database.Get(db, args.ID)
 	if err != nil {
 		log.Fatal("Unable to locate: " + args.ID)

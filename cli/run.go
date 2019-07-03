@@ -8,6 +8,7 @@ import (
 	"github.com/gookit/color"
 
 	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 	"github.com/alecbcs/lookout/results"
 	"github.com/alecbcs/lookout/update"
@@ -28,7 +29,7 @@ type RunArgs struct {
 
 // RunFull creates all nessisary go routines for the scan to run.
 func RunFull(r *cmd.RootCMD, c *cmd.CMD) {
-	db := database.Open("./test.db")
+	db := database.Open(config.Conf.Database.Path)
 	// Create the input chan to store database enties.
 	input := make(chan *results.Entry)
 	// Create the toUpdate chan to store updated apps to write back to database.

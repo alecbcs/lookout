@@ -7,6 +7,7 @@ import (
 
 	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/DataDrake/cuppa/version"
+	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 	"github.com/alecbcs/lookout/results"
 	"github.com/alecbcs/lookout/update"
@@ -32,7 +33,7 @@ type AddArgs struct {
 // Will also check if the application is up-to-date before entering into the database.
 func AddRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*AddArgs)
-	db := database.Open("./test.db")
+	db := database.Open(config.Conf.Database.Path)
 	result, found := update.CheckUpdate(args.URL)
 	if !found {
 		log.Fatal("Unable to find " + args.ID + " " + args.URL)

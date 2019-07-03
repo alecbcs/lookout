@@ -14,7 +14,7 @@ var Root *cmd.RootCMD
 func init() {
 	Root = &cmd.RootCMD{
 		Name:  "lookout",
-		Short: "Lookout an Upstream Update Watcher",
+		Short: "Lookout is an Upstream Update Watcher",
 		Flags: &GlobalFlags{},
 	}
 	Root.RegisterCMD(&cmd.Help)
