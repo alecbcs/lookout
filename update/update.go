@@ -9,7 +9,7 @@ import (
 
 func init() {
 	// Port Lookout configuration to CUPPA
-	cuppa.Global.Github.Key = config.Conf.Github.Key
+	cuppa.Global.Github.Key = config.Global.Github.Key
 }
 
 // CheckUpdate checks a given URL for the latest available release.

@@ -29,7 +29,7 @@ type SearchArgs struct {
 // SearchRun searched the database and displays the information.
 func SearchRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*SearchArgs)
-	db := database.Open(config.Conf.Database.Path)
+	db := database.Open(config.Global.Database.Path)
 	result, err := database.Get(db, args.ID)
 	if err != nil {
 		log.Fatal("Unable to locate: " + args.ID)

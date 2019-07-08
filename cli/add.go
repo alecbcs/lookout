@@ -33,7 +33,7 @@ type AddArgs struct {
 // Will also check if the application is up-to-date before entering into the database.
 func AddRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*AddArgs)
-	db := database.Open(config.Conf.Database.Path)
+	db := database.Open(config.Global.Database.Path)
 	result, found := update.CheckUpdate(args.URL)
 	if !found {
 		log.Fatal("Unable to find " + args.ID + " " + args.URL)
