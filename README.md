@@ -43,7 +43,7 @@ Lookout is an upstream software respository watcher built for maintaining large 
 #### YAML Application Import File
 
 ```yaml
-name: CUPPA
+name: cuppa
 version: 1.1.0
 source: https://github.com/DataDrake/cuppa/archive/v1.1.0.tar.gz
 dependencies: 
