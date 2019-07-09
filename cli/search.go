@@ -12,7 +12,7 @@ import (
 	"github.com/gookit/color"
 )
 
-// Search gets an entry from the database and displays the relevent information.
+// Search gets an entry from the database and displays the relevant information.
 var Search = cmd.CMD{
 	Name:  "search",
 	Alias: "s",

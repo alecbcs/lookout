@@ -30,7 +30,7 @@ func Open(databaseName string) (db *sql.DB) {
 	}
 	_, err = db.Exec(
 		"CREATE TABLE IF NOT EXISTS deps(" +
-			"id TEXT FORIEGN KEY REFRENCES appdata," +
+			"id TEXT," +
 			"dependency TEXT" +
 			");")
 	if err != nil {
