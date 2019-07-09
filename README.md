@@ -1,4 +1,4 @@
-# lookout
+# Lookout
 [![Go Report Card](https://goreportcard.com/badge/github.com/alecbcs/lookout)](https://goreportcard.com/report/github.com/alecbcs/lookout)
 
 Lookout is an upstream software respository watcher built for maintaining large collections of up-to-date applications.
@@ -25,17 +25,30 @@ Lookout is an upstream software respository watcher built for maintaining large 
 | add     | a     | Add an application entry to the database.                                  |
 | search  | s     | Search for an application in the database and retrieve all available data. |
 | run     | r     | Run a full update scan on all the application in the database.             |
+| import  | i     | Import an application entry (and it's dependencies) to the database.       |
 
 
 
 ### Examples
+
+#### Commands
 
 | Command | Example                                     |
 | ------- | ------------------------------------------- |
 | add     | lookout add [APP_ID] [VERSION] [SOURCE_URL] |
 | search  | lookout search [APP_ID]                     |
 | run     | lookout run                                 |
+| import  | lookout import [YAML FILE]                  |
 
+#### YAML Application Import File
+
+```yaml
+name: CUPPA
+version: 1.1.0
+source: https://github.com/DataDrake/cuppa/archive/v1.1.0.tar.gz
+dependencies: 
+    - golang
+```
 
 
 ## License
