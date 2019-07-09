@@ -12,7 +12,7 @@ import (
 	"github.com/gookit/color"
 )
 
-// Search gets an entry from the database and displays the relavent information.
+// Search gets an entry from the database and displays the relevent information.
 var Search = cmd.CMD{
 	Name:  "search",
 	Alias: "s",
@@ -57,4 +57,7 @@ func SearchRun(r *cmd.RootCMD, c *cmd.CMD) {
 	fmt.Printf(latestVersion, "LatestVersion", strings.Join(result.LatestVersion, "."))
 	fmt.Printf(currentVersion, "CurrentVersion", strings.Join(result.CurrentVersion, "."))
 	fmt.Printf("%-20s: %s\n", "Up-To-Date", strconv.FormatBool(result.UpToDate))
+	if len(result.Dependencies) > 0 {
+		fmt.Printf("%-20s: [%s]\n", "Dependencies", strings.Join(result.Dependencies, ", "))
+	}
 }

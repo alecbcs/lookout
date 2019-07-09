@@ -56,7 +56,7 @@ func RunFull(r *cmd.RootCMD, c *cmd.CMD) {
 
 }
 
-// Generate the number of worker processes to optimize effeciency.
+// Generate the number of worker processes to optimize efficiency.
 // Subtract 2 from the number of cores because of the main thread and the GetAll function.
 func genNumWorkers() int {
 	if runtime.NumCPU() > 2 {
@@ -77,7 +77,7 @@ func runWorker(wg *sync.WaitGroup, input <-chan *results.Entry, output chan<- *r
 			continue
 		}
 		// If the latest version does not match the database version, mark out-od-date.
-		if result.Version.Compare(app.CurrentVersion) < 0 {
+		if !update.UpToDate(result.Version, app.CurrentVersion) {
 			app.LatestURL = result.Location
 			app.LatestVersion = result.Version
 			output <- app

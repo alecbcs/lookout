@@ -21,4 +21,5 @@ func init() {
 	Root.RegisterCMD(&Add)
 	Root.RegisterCMD(&Search)
 	Root.RegisterCMD(&Run)
+	Root.RegisterCMD(&Import)
 }

@@ -13,6 +13,7 @@ type Entry struct {
 	LatestVersion  version.Version // Latest version is most up-to-date
 	CurrentURL     string
 	CurrentVersion version.Version // Current version is installed on system.
+	Dependencies   []string
 	UpToDate       bool
 }
 
@@ -24,6 +25,7 @@ func New(id string, latest string, latestv version.Version, current string, curr
 		latestv,
 		current,
 		currentv,
+		[]string{},
 		up2date}
 	return entry
 }

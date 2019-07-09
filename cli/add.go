@@ -3,7 +3,6 @@ package cli
 import (
 	"fmt"
 	"log"
-	"strings"
 
 	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/DataDrake/cuppa/version"
@@ -45,7 +44,7 @@ func AddRun(r *cmd.RootCMD, c *cmd.CMD) {
 		result.Version,
 		args.URL,
 		version.NewVersion(args.Version),
-		args.Version == strings.Join(result.Version, "."))
+		update.UpToDate(result.Version, version.NewVersion(args.Version)))
 	database.Add(db, entry)
 	fmt.Println(entry.ID, entry.LatestURL, entry.UpToDate)
 }
