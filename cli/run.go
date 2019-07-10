@@ -1,11 +1,10 @@
 package cli
 
 import (
-	"fmt"
 	"runtime"
 	"sync"
 
-	"github.com/gookit/color"
+	"github.com/alecbcs/lookout/ui"
 
 	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/alecbcs/lookout/config"
@@ -67,13 +66,11 @@ func genNumWorkers() int {
 
 // runWorker defines an update worker process.
 func runWorker(wg *sync.WaitGroup, input <-chan *results.Entry, output chan<- *results.Entry) {
-	red := color.FgRed.Render("%s\n")
-	cyan := color.FgCyan.Render("%s\n")
 	// Pull the next app off the queue channel.
 	for app := range input {
 		result, found := update.CheckUpdate(app.CurrentURL)
 		if !found {
-			fmt.Printf("%-15s: "+red, app.ID, "Not Found")
+			ui.PrintRed(app.ID, "Not Found")
 			continue
 		}
 		// If the latest version does not match the database version, mark out-od-date.
@@ -81,9 +78,9 @@ func runWorker(wg *sync.WaitGroup, input <-chan *results.Entry, output chan<- *r
 			app.LatestURL = result.Location
 			app.LatestVersion = result.Version
 			output <- app
-			fmt.Printf("%-15s: "+red, app.ID, "New Version Found")
+			ui.PrintRed(app.ID, "New Version Found")
 		} else {
-			fmt.Printf("%-15s: "+cyan, app.ID, "Up-To-Date")
+			ui.PrintCyan(app.ID, "Up-To-Date")
 		}
 	}
 	// Tell WaitGroup that go routine has finished.

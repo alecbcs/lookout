@@ -1,8 +1,9 @@
 package cli
 
 import (
-	"fmt"
 	"log"
+
+	"github.com/alecbcs/lookout/ui"
 
 	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/DataDrake/cuppa/version"
@@ -46,5 +47,5 @@ func AddRun(r *cmd.RootCMD, c *cmd.CMD) {
 		version.NewVersion(args.Version),
 		update.UpToDate(result.Version, version.NewVersion(args.Version)))
 	database.Add(db, entry)
-	fmt.Println(entry.ID, entry.LatestURL, entry.UpToDate)
+	ui.PrintCyan(args.ID, "ADDED")
 }

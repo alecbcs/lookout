@@ -63,4 +63,5 @@ func ImportRun(r *cmd.RootCMD, c *cmd.CMD) {
 		update.UpToDate(result.Version, version.NewVersion(data.Version)))
 	entry.Dependencies = data.Dependencies
 	database.Add(db, entry)
+	database.ImportDeps(db, entry.ID, entry.Dependencies)
 }

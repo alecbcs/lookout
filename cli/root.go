@@ -19,7 +19,10 @@ func init() {
 	}
 	Root.RegisterCMD(&cmd.Help)
 	Root.RegisterCMD(&Add)
-	Root.RegisterCMD(&Search)
-	Root.RegisterCMD(&Run)
+	Root.RegisterCMD(&AddDep)
 	Root.RegisterCMD(&Import)
+	Root.RegisterCMD(&Remove)
+	Root.RegisterCMD(&RemoveDep)
+	Root.RegisterCMD(&Run)
+	Root.RegisterCMD(&Search)
 }

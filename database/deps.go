@@ -3,18 +3,17 @@ package database
 import (
 	"database/sql"
 	"log"
-
-	"github.com/alecbcs/lookout/results"
 )
 
-// AddDeps maps an app's dependencies to the app.
+// ImportDeps maps an app's dependencies to the app.
+// Unlike AddDep this will also remove old dependencies.
 // This was we can keep track of package relationships.
-func AddDeps(db *sql.DB, entry *results.Entry) {
-	deps, _ := GetDeps(db, entry.ID)
-	leftover, _ := GetDeps(db, entry.ID)
-	for _, dependency := range entry.Dependencies {
+func ImportDeps(db *sql.DB, id string, new []string) {
+	deps, _ := GetDeps(db, id)
+	leftover, _ := GetDeps(db, id)
+	for _, dependency := range new {
 		if _, ok := deps[dependency]; !ok {
-			InsertDep(db, entry.ID, dependency)
+			InsertDep(db, id, dependency)
 			continue
 		}
 		delete(leftover, dependency)

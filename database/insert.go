@@ -18,7 +18,6 @@ func Add(db *sql.DB, entry *results.Entry) {
 	} else {
 		Insert(db, entry)
 	}
-	AddDeps(db, entry)
 }
 
 // Insert adds a new entry into the database.

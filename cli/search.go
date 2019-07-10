@@ -35,10 +35,10 @@ func SearchRun(r *cmd.RootCMD, c *cmd.CMD) {
 		log.Fatal("Unable to locate: " + args.ID)
 	}
 	red := color.FgRed.Render("%-20s: %s\n")
-	green := color.FgGreen.Render("%-20s: %s\n")
+	cyan := color.FgCyan.Render("%-20s: %s\n")
 	white := "%-20s: %s\n"
 
-	id := green
+	id := cyan
 	latestURL := white
 	latestVersion := white
 	currentURL := white
@@ -46,8 +46,8 @@ func SearchRun(r *cmd.RootCMD, c *cmd.CMD) {
 
 	if !result.UpToDate {
 		id = red
-		latestURL = green
-		latestVersion = green
+		latestURL = cyan
+		latestVersion = cyan
 		currentURL = red
 		currentVersion = red
 	}
