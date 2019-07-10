@@ -52,6 +52,25 @@ source: https://github.com/DataDrake/cuppa/archive/v1.1.0.tar.gz
 dependencies: 
     - golang
 ```
+## Configuration
+
+Lookout's default configuration file is located at `$HOME/.config/lookout/lookout.config`
+
+#### Example Config
+
+```toml
+[General]
+  Version = "0.0.1"
+
+[Database]
+  Path = "$HOME/.config/lookout/apps.db"
+
+[Github]
+  Key = "GITHUB-API-KEY"
+```
+
+#### Github Config
+Github limits the number of requests per day for unauthenticated clients. To get a Github key [please follow the documentation on cuppa's page](https://github.com/DataDrake/cuppa#github-personal-access-keys).
 
 ## License
 
