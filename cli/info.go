@@ -12,23 +12,23 @@ import (
 	"github.com/gookit/color"
 )
 
-// Search gets an entry from the database and displays the relevant information.
-var Search = cmd.CMD{
-	Name:  "search",
-	Alias: "s",
-	Short: "Search for a package in database",
-	Args:  &SearchArgs{},
-	Run:   SearchRun,
+// Info gets an entry from the database and displays the relevant information.
+var Info = cmd.CMD{
+	Name:  "info",
+	Alias: "i",
+	Short: "Displays the information for a package in the database",
+	Args:  &InfoArgs{},
+	Run:   InfoRun,
 }
 
-// SearchArgs handles the search specific arguments passed to the command.
-type SearchArgs struct {
+// InfoArgs handles the search specific arguments passed to the command.
+type InfoArgs struct {
 	ID string
 }
 
-// SearchRun searched the database and displays the information.
-func SearchRun(r *cmd.RootCMD, c *cmd.CMD) {
-	args := c.Args.(*SearchArgs)
+// InfoRun searched the database and displays the information.
+func InfoRun(r *cmd.RootCMD, c *cmd.CMD) {
+	args := c.Args.(*InfoArgs)
 	db := database.Open(config.Global.Database.Path)
 	result, err := database.Get(db, args.ID)
 	if err != nil {
