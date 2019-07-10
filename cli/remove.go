@@ -13,7 +13,7 @@ import (
 // Remove deletes an entry from the application database.
 var Remove = cmd.CMD{
 	Name:  "remove",
-	Alias: "r",
+	Alias: "rm",
 	Short: "Remove an entry from the database.",
 	Args:  &RemoveArgs{},
 	Run:   RemoveRun,

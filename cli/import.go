@@ -17,7 +17,7 @@ import (
 // Import adds a new app to the database.
 var Import = cmd.CMD{
 	Name:  "import",
-	Alias: "i",
+	Alias: "im",
 	Short: "Import a package in .yml format to the database.",
 	Args:  &ImportArgs{},
 	Run:   ImportRun,

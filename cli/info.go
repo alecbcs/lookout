@@ -15,7 +15,7 @@ import (
 // Info gets an entry from the database and displays the relevant information.
 var Info = cmd.CMD{
 	Name:  "info",
-	Alias: "i",
+	Alias: "in",
 	Short: "Displays the information for a package in the database",
 	Args:  &InfoArgs{},
 	Run:   InfoRun,
