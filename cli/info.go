@@ -58,6 +58,6 @@ func InfoRun(r *cmd.RootCMD, c *cmd.CMD) {
 	fmt.Printf(currentVersion, "CurrentVersion", strings.Join(result.CurrentVersion, "."))
 	fmt.Printf("%-20s: %s\n", "Up-To-Date", strconv.FormatBool(result.UpToDate))
 	if len(result.Dependencies) > 0 {
-		fmt.Printf("%-20s: [%s]\n", "Dependencies", strings.Join(result.Dependencies, ", "))
+		fmt.Printf("%-20s: %s\n", "Dependencies", strings.Join(result.Dependencies, ", "))
 	}
 }
