@@ -1,19 +1,24 @@
 # Lookout
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/alecbcs/lookout)](https://goreportcard.com/report/github.com/alecbcs/lookout)
 
 Lookout is an upstream software respository watcher built for maintaining large collections of up-to-date applications.
 
-
-
 ## Installation
+
+#### Dependencies
+
+- `GCC`
+
+- `Golang`
+
+#### Build
 
 1. Clone this repository and run
 
 2. `go build`
 
-3. `go install`
-
-
+3. If you've added you're go bin to your system path you can also run `go install` 
 
 ## Usage
 
@@ -26,8 +31,6 @@ Lookout is an upstream software respository watcher built for maintaining large 
 | search  | s     | Search for an application in the database and retrieve all available data. |
 | run     | r     | Run a full update scan on all the application in the database.             |
 | import  | i     | Import an application entry (and it's dependencies) to the database.       |
-
-
 
 ### Examples
 
@@ -49,7 +52,6 @@ source: https://github.com/DataDrake/cuppa/archive/v1.1.0.tar.gz
 dependencies: 
     - golang
 ```
-
 
 ## License
 
