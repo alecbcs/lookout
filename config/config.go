@@ -63,7 +63,7 @@ func readConf(conf *Config) {
 		genConf(defaultConf())
 		readConf(conf)
 	}
-	if err != nil {
+	if err != nil && !os.IsNotExist(err) {
 		log.Fatal(err)
 	}
 }
