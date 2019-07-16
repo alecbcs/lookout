@@ -6,9 +6,9 @@ Lookout is an upstream software respository watcher built for maintaining large 
 
 ## Backstory
 
-As a software maintainer it can be a difficult and time consuming task to keep the software you are responcible for up-to-date. Most of us achieve this by turning on email notifacations or periodically remembering to check a projects releases. However, manually checking for releases isn't full proof and email notifacations can quickly become overwhelming. As a result, I decided to write Lookout, a simple commandline tool to store package information and help automate the process of checking for upstream project updates.
+As a software maintainer, it can be a difficult and time-consuming task to keep software up-to-date. Most of us achieve this by turning on email notifications or periodically remembering to check a project's releases. However, manually checking releases isn't fool proof and email notifications can quickly become overwhelming. As a result, I wrote Lookout, a simple command line tool to store package information and to help automate the process of checking for upstream project updates.
 
-I'd also like to say a big thank you to DataDrake for writing CUPPA, the upstream polling assistant library that made the development of Lookout possible.
+I would like to say a big thank you to DataDrake for writing CUPPA, the upstream polling assistant library that made the development of Lookout possible.
 
 ## Installation
 
