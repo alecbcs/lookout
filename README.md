@@ -4,9 +4,6 @@
 
 Lookout is an upstream software respository watcher built for maintaining large collections of up-to-date applications.
 
-| :exclamation: | It is **HIGHLY recommended** that you [generate Github Personal Access Key](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token) and [place it in Lookout's Config](https://github.com/alecbcs/lookout#configuration) if you are using any Github repositories. Otherwise you will likely get a `Not Found` error when adding an application to Lookout. |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
 ## Backstory
 
 As a software maintainer it can be a difficult and time consuming task to keep the software you are responcible for up-to-date. Most of us achieve this by turning on email notifacations or periodically remembering to check a projects releases. However, manually checking for releases isn't full proof and email notifacations can quickly become overwhelming. As a result, I decided to write Lookout, a simple commandline tool to store package information and help automate the process of checking for upstream project updates.
@@ -14,6 +11,9 @@ As a software maintainer it can be a difficult and time consuming task to keep t
 I'd also like to say a big thank you to DataDrake for writing CUPPA, the upstream polling assistant library that made the development of Lookout possible.
 
 ## Installation
+
+| :exclamation: | It is **HIGHLY recommended** that you [generate Github Personal Access Key](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token) and [place it in Lookout's Config](https://github.com/alecbcs/lookout#configuration) if you are using any Github repositories. Otherwise you will likely get a `Not Found` error when adding an application to Lookout. |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 #### Dependencies
 
