@@ -27,6 +27,7 @@ type RemoveDepArgs struct {
 func RemoveDepRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*RemoveDepArgs)
 	db := database.Open(config.Global.Database.Path)
+	defer db.Close()
 	deps, _ := database.GetDeps(db, args.ID)
 	if _, ok := deps[args.Dep]; ok {
 		database.DeleteDep(db, args.ID, args.Dep)

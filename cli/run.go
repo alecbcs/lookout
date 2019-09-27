@@ -52,7 +52,7 @@ func RunFull(r *cmd.RootCMD, c *cmd.CMD) {
 	for app := range toUpdate {
 		database.Update(db, app)
 	}
-
+	defer db.Close()
 }
 
 // Generate the number of worker processes to optimize efficiency.

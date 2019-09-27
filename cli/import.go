@@ -41,6 +41,7 @@ type importData struct {
 func ImportRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*ImportArgs)
 	db := database.Open(config.Global.Database.Path)
+	defer db.Close()
 	fileData, err := ioutil.ReadFile(args.Filename)
 	if err != nil {
 		log.Fatal(err)

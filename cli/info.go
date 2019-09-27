@@ -30,6 +30,7 @@ type InfoArgs struct {
 func InfoRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*InfoArgs)
 	db := database.Open(config.Global.Database.Path)
+	defer db.Close()
 	result, err := database.Get(db, args.ID)
 	if err != nil {
 		log.Fatal("Unable to locate: " + args.ID)

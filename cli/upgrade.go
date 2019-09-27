@@ -28,6 +28,7 @@ type UpgradeArgs struct {
 func UpgradeRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*UpgradeArgs)
 	db := database.Open(config.Global.Database.Path)
+	defer db.Close()
 	entry, err := database.Get(db, args.ID)
 	if err != nil {
 		log.Fatal("Unable to locate: " + args.ID)

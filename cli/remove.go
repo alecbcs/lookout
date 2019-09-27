@@ -28,6 +28,7 @@ type RemoveArgs struct {
 func RemoveRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*RemoveArgs)
 	db := database.Open(config.Global.Database.Path)
+	defer db.Close()
 	err := database.Delete(db, args.ID)
 	if err != nil {
 		log.Fatal(err)

@@ -34,6 +34,7 @@ type AddArgs struct {
 func AddRun(r *cmd.RootCMD, c *cmd.CMD) {
 	args := c.Args.(*AddArgs)
 	db := database.Open(config.Global.Database.Path)
+	defer db.Close()
 	result, found := update.CheckUpdate(args.URL)
 	if !found {
 		log.Fatal("Unable to find " + args.ID + " " + args.URL)

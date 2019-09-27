@@ -26,6 +26,7 @@ type ListArgs struct {
 // ListRun searches the database and lists all apps in it.
 func ListRun(r *cmd.RootCMD, c *cmd.CMD) {
 	db := database.Open(config.Global.Database.Path)
+	defer db.Close()
 	apps := make(chan *results.Entry, 3)
 	go database.GetAll(db, apps)
 	for app := range apps {

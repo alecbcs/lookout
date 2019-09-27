@@ -80,18 +80,23 @@ func GetAll(db *sql.DB, output chan *results.Entry) {
 		log.Fatal(err)
 	}
 	defer rows.Close()
+
+	entries := make([]*results.Entry, 0)
 	for rows.Next() {
 		err = rows.Scan(&id, &latestURL, &latestVersion, &currentURL, &currentVersion, &upToDate)
 		if err != nil {
 			log.Fatal(err)
 		}
-		output <- results.New(
+		entries = append(entries, results.New(
 			id,
 			latestURL,
 			version.NewVersion(latestVersion),
 			currentURL,
 			version.NewVersion(currentVersion),
-			upToDate)
+			upToDate))
+	}
+	for _, entry := range entries {
+		output <- entry
 	}
 	close(output)
 }
