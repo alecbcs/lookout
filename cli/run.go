@@ -77,6 +77,7 @@ func runWorker(wg *sync.WaitGroup, input <-chan *results.Entry, output chan<- *r
 		if !update.UpToDate(result.Version, app.CurrentVersion) {
 			app.LatestURL = result.Location
 			app.LatestVersion = result.Version
+			app.UpToDate = false
 			output <- app
 			ui.PrintRed(app.ID, "New Version Found")
 		} else {
