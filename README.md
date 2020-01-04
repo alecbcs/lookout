@@ -13,7 +13,7 @@ I would like to say a big thank you to DataDrake for writing CUPPA, the upstream
 ## Installation
 
 | :exclamation: | It is **HIGHLY recommended** that you [generate a Github Personal Access Key](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token) and [place it in Lookout's Config](https://github.com/alecbcs/lookout#configuration) if you are using any Github repositories. Otherwise you will likely get a `Not Found` error when adding an application to Lookout. |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 #### Dependencies
 
@@ -21,13 +21,19 @@ I would like to say a big thank you to DataDrake for writing CUPPA, the upstream
 
 - `Golang`
 
+- If you'd like to use lookout as an installed program you must add your go directory to your [PATH](https://golang.org/doc/install#install).
+
 #### Build
 
-1. Clone this repository and run
+1. With go installed simply run `go get github.com/alecbcs/lookout` 
+   
+   or
 
-2. `go build` (This will build `lookout` into a binary you can add to your `bin`.)
+2. Clone this repository and run
 
-3. If you've added your go bin to your system PATH you can also run `go install` 
+3. `go build` (This will build `lookout` into a binary you can add to your `bin`.)
+
+4. If you've added your go bin to your system PATH you can also run `go install`
 
 ## Usage
 
@@ -97,7 +103,7 @@ Github limits the number of requests per day for unauthenticated clients. If you
 
 ## License
 
-Copyright 2019 Alec Scott <alecbcs@gmail.com>
+Copyright 2019-2020 Alec Scott <alecbcs@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
