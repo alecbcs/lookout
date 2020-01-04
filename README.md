@@ -29,11 +29,11 @@ I would like to say a big thank you to DataDrake for writing CUPPA, the upstream
    
    or
 
-2. Clone this repository and run
+1. Clone this repository and run
 
-3. `go build` (This will build `lookout` into a binary you can add to your `bin`.)
+2. `go build` (This will build `lookout` into a binary you can add to your `bin`.)
 
-4. If you've added your go bin to your system PATH you can also run `go install`
+3. If you've added your go bin to your system PATH you can also run `go install`
 
 ## Usage
 
