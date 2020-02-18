@@ -1,3 +1,5 @@
+![](logos/mountain.png)
+
 # Lookout
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/alecbcs/lookout)](https://goreportcard.com/report/github.com/alecbcs/lookout)
@@ -26,14 +28,14 @@ I would like to say a big thank you to DataDrake for writing CUPPA, the upstream
 #### Build
 
 1. With go installed simply run `go get github.com/alecbcs/lookout` 
-   
-   or
 
-2. Clone this repository and run
+or
 
-3. `go build` (This will build `lookout` into a binary you can add to your `bin`.)
+1. Clone this repository and run
 
-4. If you've added your go bin to your system PATH you can also run `go install`
+2. `go build` (This will build `lookout` into a binary you can add to your `bin`.)
+
+3. If you've added your go bin to your system PATH you can also run `go install`
 
 ## Usage
 
@@ -100,6 +102,12 @@ Lookout's default configuration file is located at `$HOME/.config/lookout/lookou
 #### Github Config
 
 Github limits the number of requests per day for unauthenticated clients. If you are getting a `Not Found` error when trying add a Github entry to lookout, you'll need to create a Github personal access key and add it to the lookout config. To get a Github key [please follow the documentation on cuppa's Github page](https://github.com/DataDrake/cuppa#github-personal-access-keys).
+
+
+
+#### Thanks to [ManyPixels](https://www.manypixels.co/) for the amazing artwork above.
+
+
 
 ## License
 
