@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo/mountain.png">
+  <img src="logos/mountain.png">
 </p>
 <h1 align="center">
   Lookout
