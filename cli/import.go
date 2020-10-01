@@ -6,8 +6,8 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/DataDrake/cuppa/version"
+	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 	"github.com/alecbcs/lookout/results"
