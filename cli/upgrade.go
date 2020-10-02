@@ -36,6 +36,14 @@ func UpgradeRun(r *cmd.RootCMD, c *cmd.CMD) {
 	entry.CurrentURL = entry.LatestURL
 	entry.CurrentVersion = entry.LatestVersion
 	entry.UpToDate = true
-	database.Update(db, entry)
+	tx, err := db.Begin()
+if err != nil {
+		log.Fatal(err)
+	}
+	database.Update(tx, entry)
+	err = tx.Commit()
+	if err != nil {
+		log.Fatal(err)
+	}
 	ui.PrintCyan(entry.ID, "UPDATED")
 }

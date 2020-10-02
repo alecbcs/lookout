@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"log"
 	"runtime"
 	"sync"
 
@@ -49,8 +50,16 @@ func RunFull(r *cmd.RootCMD, c *cmd.CMD) {
 		close(toUpdate)
 	}()
 	// Update all db entires that are out-of-date.
+	tx, err := db.Begin()
+	if err != nil {
+		log.Fatal(err)
+	}
 	for app := range toUpdate {
-		database.Update(db, app)
+		database.Update(tx, app)
+	}
+	err = tx.Commit()
+	if err != nil {
+		log.Fatal(err)
 	}
 	defer db.Close()
 }

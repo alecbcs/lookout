@@ -12,7 +12,7 @@ import (
 // List shows all the apps in the database.
 var List = cmd.CMD{
 	Name:  "list",
-	Alias: "l",
+	Alias: "ls",
 	Short: "List all of the applications in the database.",
 	Args:  &ListArgs{},
 	Run:   ListRun,

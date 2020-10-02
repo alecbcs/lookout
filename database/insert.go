@@ -14,7 +14,15 @@ func Add(db *sql.DB, entry *results.Entry) {
 	result, found := Get(db, entry.ID)
 	if found == nil {
 		results.Patch(result, entry)
-		Update(db, result)
+		tx, err := db.Begin()
+		if err != nil {
+			log.Fatal(err)
+		}
+		Update(tx, result)
+		err = tx.Commit()
+		if err != nil {
+			log.Fatal(err)
+		}
 	} else {
 		Insert(db, entry)
 	}
@@ -54,12 +62,8 @@ func Insert(db *sql.DB, entry *results.Entry) {
 }
 
 // Update patches an existing db entry with new data.
-func Update(db *sql.DB, entry *results.Entry) {
-	err := db.Ping()
-	if err != nil {
-		log.Fatal(err)
-	}
-	stmt, err := db.Prepare(
+func Update(tx *sql.Tx, entry *results.Entry) {
+	stmt, err := tx.Prepare(
 		"UPDATE appdata SET " +
 			"latestURL = ?," +
 			"latestVERSION = ?," +
