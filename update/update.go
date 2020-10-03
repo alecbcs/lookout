@@ -5,6 +5,8 @@ import (
 	"github.com/DataDrake/cuppa/providers"
 	"github.com/DataDrake/cuppa/results"
 	"github.com/alecbcs/lookout/config"
+
+	"log"
 )
 
 func init() {
@@ -23,6 +25,12 @@ func CheckUpdate(archive string) (*results.Result, bool) {
 		if name == "" {
 			continue
 		}
+
+		// GitHub will never work without a token
+		if p.Name() == "GitHub" && cuppa.Global.Github.Key == "" {
+			log.Fatal("A GitHub token is required in your $HOME/.config/lookout/lookout.config")
+		}
+
 		// Pull the latest (non-beta) release from repository.
 		r, s := p.Latest(name)
 		if s != results.OK {

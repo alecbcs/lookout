@@ -1,7 +1,9 @@
 package results
 
 import (
+	"fmt"
 	"strings"
+	"strconv"
 
 	"github.com/DataDrake/cuppa/version"
 )
@@ -16,6 +18,20 @@ type Entry struct {
 	Dependencies   []string
 	UpToDate       bool
 }
+
+// printResult formats a result object correctly to print
+func (e Entry) PrintEntry() {
+	fmt.Printf("%-20s: %s\n", "Package ID", e.ID)
+	fmt.Printf("%-20s: %s\n", "Up-To-Date", strconv.FormatBool(e.UpToDate))
+	fmt.Printf("%-20s: %s\n", "LatestVersion", strings.Join(e.LatestVersion, "."))
+	fmt.Printf("%-20s: %s\n", "CurrentVersion", strings.Join(e.CurrentVersion, "."))
+	fmt.Printf("%-20s: %s\n", "Latest", e.LatestURL)
+	fmt.Printf("%-20s: %s\n", "Current", e.CurrentURL)
+	if len(e.Dependencies) > 0 {
+		fmt.Printf("%-20s: %s\n", "Dependencies", strings.Join(e.Dependencies, ", "))
+	}
+}
+
 
 // New creates a new Database Entry structure to store data in.
 func New(id string, latest string, latestv version.Version, current string, currentv version.Version, up2date bool) *Entry {
