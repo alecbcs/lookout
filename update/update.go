@@ -5,11 +5,17 @@ import (
 	"github.com/DataDrake/cuppa/providers"
 	"github.com/DataDrake/cuppa/results"
 	"github.com/alecbcs/lookout/config"
+
+	"log"
 )
 
 func init() {
 	// Port Lookout configuration to CUPPA
-	cuppa.Global.Github.Key = config.Global.Github.Key
+        cuppa.Global.Github.Key = config.Global.Github.Key
+
+	if config.Global.Github.Key == "" {
+		log.Fatal("A GitHub token is required in your $HOME/.config/lookout/lookout.config")
+	}
 }
 
 // CheckUpdate checks a given URL for the latest available release.
@@ -23,8 +29,10 @@ func CheckUpdate(archive string) (*results.Result, bool) {
 		if name == "" {
 			continue
 		}
+
 		// Pull the latest (non-beta) release from repository.
 		r, s := p.Latest(name)
+
 		if s != results.OK {
 			continue
 		}
