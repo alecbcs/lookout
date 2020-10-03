@@ -32,6 +32,8 @@ I would like to say a big thank you to DataDrake for writing CUPPA, the upstream
 
 1. With go installed simply run `go get github.com/alecbcs/lookout` 
 
+or
+
 1. Clone this repository and run
 
 2. `go build` (This will build `lookout` into a binary you can add to your `bin`.)
