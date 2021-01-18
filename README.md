@@ -114,7 +114,7 @@ Github limits the number of requests per day for unauthenticated clients. If you
 
 ## License
 
-Copyright 2019-2020 Alec Scott <alecbcs@gmail.com>
+Copyright 2019-2021 Alec Scott <alecbcs@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
