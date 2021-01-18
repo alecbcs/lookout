@@ -29,6 +29,7 @@ type RunArgs struct {
 
 // RunFull creates all nessisary go routines for the scan to run.
 func RunFull(r *cmd.RootCMD, c *cmd.CMD) {
+	update.Init(config.Global.Github.Key)
 	db := database.Open(config.Global.Database.Path)
 	// Create the input chan to store database enties.
 	input := make(chan *results.Entry)

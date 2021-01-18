@@ -6,8 +6,8 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/DataDrake/cuppa/version"
 	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cuppa/version"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 	"github.com/alecbcs/lookout/results"
@@ -51,6 +51,7 @@ func ImportRun(r *cmd.RootCMD, c *cmd.CMD) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	update.Init(config.Global.Github.Key)
 	result, found := update.CheckUpdate(data.Source)
 	if !found {
 		log.Fatal("Unable to find " + data.Name + " " + data.Source)

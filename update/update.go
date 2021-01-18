@@ -4,14 +4,14 @@ import (
 	cuppa "github.com/DataDrake/cuppa/config"
 	"github.com/DataDrake/cuppa/providers"
 	"github.com/DataDrake/cuppa/results"
-	"github.com/alecbcs/lookout/config"
 
 	"log"
 )
 
-func init() {
+// Init sets the GitHub token in CUPPA from the GitHub Token in Lookout.
+func Init(key string) {
 	// Port Lookout configuration to CUPPA
-	cuppa.Global.Github.Key = config.Global.Github.Key
+	cuppa.Global.Github.Key = key
 }
 
 // CheckUpdate checks a given URL for the latest available release.
@@ -32,8 +32,8 @@ func CheckUpdate(archive string) (*results.Result, bool) {
 		}
 
 		// Pull the latest (non-beta) release from repository.
-		r, s := p.Latest(name)
-		if s != results.OK {
+		r, err := p.Latest(name)
+		if err != nil {
 			continue
 		}
 		found = true

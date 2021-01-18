@@ -6,7 +6,6 @@ import (
 	"github.com/DataDrake/cli-ng/cmd"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
-
 )
 
 // Info gets an entry from the database and displays the relevant information.
@@ -31,6 +30,6 @@ func InfoRun(r *cmd.RootCMD, c *cmd.CMD) {
 	result, err := database.Get(db, args.ID)
 	if err != nil {
 		log.Fatal("Unable to locate: " + args.ID)
-	}       
-        result.PrintEntry()
+	}
+	result.PrintEntry()
 }
