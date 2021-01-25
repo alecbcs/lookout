@@ -1,9 +1,9 @@
 package update
 
 import (
-	cuppa "github.com/DataDrake/cuppa/config"
-	"github.com/DataDrake/cuppa/providers"
-	"github.com/DataDrake/cuppa/results"
+	cuppa "github.com/alecbcs/cuppa/config"
+	"github.com/alecbcs/cuppa/providers"
+	"github.com/alecbcs/cuppa/results"
 
 	"log"
 )

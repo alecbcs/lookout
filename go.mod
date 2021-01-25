@@ -1,6 +1,6 @@
 module github.com/alecbcs/lookout
 
-go 1.12
+go 1.15
 
 require (
 	github.com/BurntSushi/toml v0.3.1
@@ -8,6 +8,7 @@ require (
 	github.com/DataDrake/cuppa v1.1.1-0.20201214103453-96970cbb0303
 	github.com/Masterminds/semver v1.4.2 // indirect
 	github.com/Masterminds/vcs v1.12.0 // indirect
+	github.com/alecbcs/cuppa v1.1.1-0.20210125155057-a87bc78dbc5e
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/boltdb/bolt v1.3.1 // indirect
 	github.com/golang/dep v0.5.0 // indirect

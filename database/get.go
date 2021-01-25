@@ -5,7 +5,7 @@ import (
 	"errors"
 	"log"
 
-	"github.com/DataDrake/cuppa/version"
+	"github.com/alecbcs/cuppa/version"
 	"github.com/alecbcs/lookout/results"
 )
 
