@@ -27,4 +27,5 @@ func init() {
 	cmd.Register(&RemoveDep)
 	cmd.Register(&Run)
 	cmd.Register(&Upgrade)
+	cmd.Register(&SelfUpdate)
 }

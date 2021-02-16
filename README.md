@@ -20,7 +20,14 @@ I would like to say a big thank you to DataDrake for writing CUPPA, the upstream
 | :exclamation: | It is **HIGHLY recommended** that you [generate a Github Personal Access Key](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token) and [place it in Lookout's Config](https://github.com/alecbcs/lookout#configuration) if you are using any Github repositories. Otherwise you will likely get a `Not Found` error when adding an application to Lookout. |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-#### Dependencies
+#### Download Prebuilt Binaries
+1. Go to AIT Releases
+2. Copy the link to your corresponding OS and Architecture.
+3. Run `sudo curl -L "PATH-TO-RELEASE" -o /usr/local/bin/lookout`
+4. Run `sudo chmod a+x /usr/local/bin/lookout`
+5. (Optional) Run `sudo ln -s /usr/local/bin/ait /usr/bin/lookout`
+
+#### Development Dependencies
 
 - `GCC`
 
