@@ -3,13 +3,13 @@ package cli
 import (
 	"github.com/alecbcs/lookout/ui"
 
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 )
 
 // RemoveDep deletes an app, dependency relationship from the database.
-var RemoveDep = cmd.CMD{
+var RemoveDep = cmd.Sub{
 	Name:  "remove-dependency",
 	Alias: "rd",
 	Short: "Remove an entry, dependency relationship from the database.",
@@ -24,7 +24,7 @@ type RemoveDepArgs struct {
 }
 
 // RemoveDepRun deletes an app, dependency relationship from the database.
-func RemoveDepRun(r *cmd.RootCMD, c *cmd.CMD) {
+func RemoveDepRun(r *cmd.Root, c *cmd.Sub) {
 	args := c.Args.(*RemoveDepArgs)
 	db := database.Open(config.Global.Database.Path)
 	defer db.Close()

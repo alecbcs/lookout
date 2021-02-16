@@ -5,13 +5,13 @@ import (
 
 	"github.com/alecbcs/lookout/ui"
 
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 )
 
 // Upgrade modifies an entry in the database to make it the latest version.
-var Upgrade = cmd.CMD{
+var Upgrade = cmd.Sub{
 	Name:  "upgrade",
 	Alias: "up",
 	Short: "Set an entry to the latest version possible.",
@@ -25,7 +25,7 @@ type UpgradeArgs struct {
 }
 
 // UpgradeRun will patch an existing database entry with the latest information.
-func UpgradeRun(r *cmd.RootCMD, c *cmd.CMD) {
+func UpgradeRun(r *cmd.Root, c *cmd.Sub) {
 	args := c.Args.(*UpgradeArgs)
 	db := database.Open(config.Global.Database.Path)
 	defer db.Close()
@@ -37,7 +37,7 @@ func UpgradeRun(r *cmd.RootCMD, c *cmd.CMD) {
 	entry.CurrentVersion = entry.LatestVersion
 	entry.UpToDate = true
 	tx, err := db.Begin()
-if err != nil {
+	if err != nil {
 		log.Fatal(err)
 	}
 	database.Update(tx, entry)

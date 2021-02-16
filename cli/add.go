@@ -5,7 +5,7 @@ import (
 
 	"github.com/alecbcs/lookout/ui"
 
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 	"github.com/alecbcs/cuppa/version"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
@@ -14,7 +14,7 @@ import (
 )
 
 // Add imports a new app entry into the database.
-var Add = cmd.CMD{
+var Add = cmd.Sub{
 	Name:  "add",
 	Alias: "a",
 	Short: "Add an entry to the database",
@@ -31,7 +31,7 @@ type AddArgs struct {
 
 // AddRun imports a new app entry into the database.
 // Will also check if the application is up-to-date before entering into the database.
-func AddRun(r *cmd.RootCMD, c *cmd.CMD) {
+func AddRun(r *cmd.Root, c *cmd.Sub) {
 	args := c.Args.(*AddArgs)
 	db := database.Open(config.Global.Database.Path)
 	defer db.Close()

@@ -5,13 +5,13 @@ import (
 
 	"github.com/alecbcs/lookout/ui"
 
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 )
 
 // Remove deletes an entry from the application database.
-var Remove = cmd.CMD{
+var Remove = cmd.Sub{
 	Name:  "remove",
 	Alias: "rm",
 	Short: "Remove an entry from the database.",
@@ -25,7 +25,7 @@ type RemoveArgs struct {
 }
 
 //RemoveRun executes a remove statments from the SQL database.
-func RemoveRun(r *cmd.RootCMD, c *cmd.CMD) {
+func RemoveRun(r *cmd.Root, c *cmd.Sub) {
 	args := c.Args.(*RemoveArgs)
 	db := database.Open(config.Global.Database.Path)
 	defer db.Close()

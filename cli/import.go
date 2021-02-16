@@ -6,7 +6,7 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 	"github.com/alecbcs/cuppa/version"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
@@ -15,7 +15,7 @@ import (
 )
 
 // Import adds a new app to the database.
-var Import = cmd.CMD{
+var Import = cmd.Sub{
 	Name:  "import",
 	Alias: "im",
 	Short: "Import a package in .yml format to the database.",
@@ -38,7 +38,7 @@ type importData struct {
 // ImportRun adds a new app entry to the database by parsing a YAML file.
 // Import like the add command will check if the app is up to date
 // before adding to the database.
-func ImportRun(r *cmd.RootCMD, c *cmd.CMD) {
+func ImportRun(r *cmd.Root, c *cmd.Sub) {
 	args := c.Args.(*ImportArgs)
 	db := database.Open(config.Global.Database.Path)
 	defer db.Close()

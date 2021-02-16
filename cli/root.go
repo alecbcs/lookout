@@ -1,30 +1,30 @@
 package cli
 
 import (
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 )
 
 //GlobalFlags contains the flags for commands.
 type GlobalFlags struct{}
 
 // Root is the main command.
-var Root *cmd.RootCMD
+var Root *cmd.Root
 
 // init creates the command interface and registers the possible commands.
 func init() {
-	Root = &cmd.RootCMD{
+	Root = &cmd.Root{
 		Name:  "lookout",
 		Short: "Lookout is an Upstream Update Watcher",
 		Flags: &GlobalFlags{},
 	}
-	Root.RegisterCMD(&cmd.Help)
-	Root.RegisterCMD(&Add)
-	Root.RegisterCMD(&AddDep)
-	Root.RegisterCMD(&Import)
-	Root.RegisterCMD(&Info)
-	Root.RegisterCMD(&List)
-	Root.RegisterCMD(&Remove)
-	Root.RegisterCMD(&RemoveDep)
-	Root.RegisterCMD(&Run)
-	Root.RegisterCMD(&Upgrade)
+	cmd.Register(&cmd.Help)
+	cmd.Register(&Add)
+	cmd.Register(&AddDep)
+	cmd.Register(&Import)
+	cmd.Register(&Info)
+	cmd.Register(&List)
+	cmd.Register(&Remove)
+	cmd.Register(&RemoveDep)
+	cmd.Register(&Run)
+	cmd.Register(&Upgrade)
 }

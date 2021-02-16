@@ -7,7 +7,7 @@ import (
 
 	"github.com/alecbcs/lookout/ui"
 
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 	"github.com/alecbcs/lookout/results"
@@ -15,7 +15,7 @@ import (
 )
 
 // Run executes a full database scan to see if any applictions are out of date.
-var Run = cmd.CMD{
+var Run = cmd.Sub{
 	Name:  "run",
 	Alias: "r",
 	Short: "Run a full scan of the database to check for updates.",
@@ -28,7 +28,7 @@ type RunArgs struct {
 }
 
 // RunFull creates all nessisary go routines for the scan to run.
-func RunFull(r *cmd.RootCMD, c *cmd.CMD) {
+func RunFull(r *cmd.Root, c *cmd.Sub) {
 	update.Init(config.Global.Github.Key)
 	db := database.Open(config.Global.Database.Path)
 	// Create the input chan to store database enties.

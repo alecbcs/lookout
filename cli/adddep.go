@@ -1,14 +1,14 @@
 package cli
 
 import (
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 	"github.com/alecbcs/lookout/ui"
 )
 
 // AddDep imports a new app, dependency relationship into the database.
-var AddDep = cmd.CMD{
+var AddDep = cmd.Sub{
 	Name:  "add-dependency",
 	Alias: "ad",
 	Short: "Add an entry, dependency relationship to the database",
@@ -24,7 +24,7 @@ type AddDepArgs struct {
 
 // AddDepRun imports a new app, dependency relationship.
 // It will also check for duplicate dependencies before continuing.
-func AddDepRun(r *cmd.RootCMD, c *cmd.CMD) {
+func AddDepRun(r *cmd.Root, c *cmd.Sub) {
 	args := c.Args.(*AddDepArgs)
 	db := database.Open(config.Global.Database.Path)
 	defer db.Close()

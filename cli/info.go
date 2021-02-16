@@ -3,13 +3,13 @@ package cli
 import (
 	"log"
 
-	"github.com/DataDrake/cli-ng/cmd"
+	"github.com/DataDrake/cli-ng/v2/cmd"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 )
 
 // Info gets an entry from the database and displays the relevant information.
-var Info = cmd.CMD{
+var Info = cmd.Sub{
 	Name:  "info",
 	Alias: "in",
 	Short: "Displays the information for a package in the database",
@@ -23,7 +23,7 @@ type InfoArgs struct {
 }
 
 // InfoRun searched the database and displays the information.
-func InfoRun(r *cmd.RootCMD, c *cmd.CMD) {
+func InfoRun(r *cmd.Root, c *cmd.Sub) {
 	args := c.Args.(*InfoArgs)
 	db := database.Open(config.Global.Database.Path)
 	defer db.Close()
