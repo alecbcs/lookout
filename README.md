@@ -21,7 +21,7 @@ I would like to say a big thank you to DataDrake for writing CUPPA, the upstream
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 #### Download Prebuilt Binaries
-1. Go to AIT Releases
+1. Go to Lookout [Releases](https://github.com/alecbcs/lookout/releases) -->
 2. Copy the link to your corresponding OS and Architecture.
 3. Run `sudo curl -L "PATH-TO-RELEASE" -o /usr/local/bin/lookout`
 4. Run `sudo chmod a+x /usr/local/bin/lookout`
