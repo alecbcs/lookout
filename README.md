@@ -15,6 +15,9 @@ As a software maintainer, it can be a difficult and time-consuming task to keep 
 
 I would like to say a big thank you to DataDrake for writing CUPPA, the upstream polling assistant library that made the development of Lookout possible.
 
+## Demo
+[![asciicast](https://asciinema.org/a/391933.svg)](https://asciinema.org/a/391933)
+
 ## Installation
 
 | :exclamation: | It is **HIGHLY recommended** that you [generate a Github Personal Access Key](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token) and [place it in Lookout's Config](https://github.com/alecbcs/lookout#configuration) if you are using any Github repositories. Otherwise you will likely get a `Not Found` error when adding an application to Lookout. |
