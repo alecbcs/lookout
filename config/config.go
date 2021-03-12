@@ -33,8 +33,9 @@ type github struct {
 
 var (
 	// Global is the configuration struct for the application.
-	Global Config
-	path   string
+	Global     Config
+	appVersion string
+	path       string
 )
 
 // initialize the app config system. If a config doesn't exist, create one.
@@ -50,7 +51,7 @@ func init() {
 	readConf(&Global)
 	// If the configuration version has changed update the config to the new
 	// format while keeping the user's preferences.
-	if Global.General.Version != defaultConf().General.Version {
+	if Global.General.Version != appVersion {
 		reloadConf()
 		readConf(&Global)
 	}

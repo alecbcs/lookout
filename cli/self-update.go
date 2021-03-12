@@ -12,11 +12,10 @@ import (
 	"time"
 
 	"github.com/DataDrake/cli-ng/v2/cmd"
+	"github.com/alecbcs/lookout/config"
 	"github.com/inconshreveable/go-update"
 	"github.com/tcnksm/go-latest"
 )
-
-var appVersion string
 
 // SelfUpdate checks for a new version of Lookout and updates itself
 // if a newer version is found and the user agrees to update.
@@ -40,7 +39,7 @@ type SelfUpdateFlags struct {
 
 // UpdateRun handles the checking and self updating of Lookout.
 func UpdateRun(r *cmd.Root, c *cmd.Sub) {
-	fmt.Printf("Current Version: %s\n", appVersion)
+	fmt.Printf("Current Version: %s\n", config.Global.General.Version)
 
 	flags := c.Flags.(*SelfUpdateFlags)
 	latestVersion := &latest.GithubTag{
@@ -48,7 +47,7 @@ func UpdateRun(r *cmd.Root, c *cmd.Sub) {
 		Repository: "lookout",
 	}
 
-	res, _ := latest.Check(latestVersion, appVersion)
+	res, _ := latest.Check(latestVersion, config.Global.General.Version)
 	fmt.Printf("Latest Version: %s\n", res.Current)
 
 	if res.Outdated {

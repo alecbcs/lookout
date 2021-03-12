@@ -1,6 +1,10 @@
 package update
 
 import (
+	"net/http"
+	"regexp"
+	"strings"
+
 	cuppa "github.com/alecbcs/cuppa/config"
 	"github.com/alecbcs/cuppa/providers"
 	"github.com/alecbcs/cuppa/results"
@@ -37,8 +41,23 @@ func CheckUpdate(archive string) (*results.Result, bool) {
 			continue
 		}
 		found = true
+		matchLink(archive, r)
 		return r, found
 	}
 	// Return an empty result + found status if not found.
 	return r, found
+}
+
+func matchLink(archive string, result *results.Result) {
+	vexp := regexp.MustCompile(`.[.].[.].`)
+	updatedLink := vexp.ReplaceAllString(archive, strings.Join(result.Version, "."))
+
+	resp, err := http.Head(updatedLink)
+	if err != nil {
+		return
+	}
+	if resp.StatusCode != http.StatusOK {
+		return
+	}
+	result.Location = updatedLink
 }
