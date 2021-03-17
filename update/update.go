@@ -52,7 +52,7 @@ func CheckUpdate(archive string) (*results.Result, bool) {
 
 func matchLink(archive string, result *results.Result) {
 	if archive != "" {
-		vexp := regexp.MustCompile(`.[.].[.].`)
+		vexp := regexp.MustCompile(`([0-9]{1,4}[.])+[0-9,a-d]{1,4}`)
 		updatedLink := vexp.ReplaceAllString(archive, strings.Join(result.Version, "."))
 
 		resp, err := http.Head(updatedLink)
