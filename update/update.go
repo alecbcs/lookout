@@ -40,24 +40,28 @@ func CheckUpdate(archive string) (*results.Result, bool) {
 		if err != nil {
 			continue
 		}
-		found = true
-		matchLink(archive, r)
-		return r, found
+		if r != nil {
+			found = true
+			matchLink(archive, r)
+			return r, found
+		}
 	}
 	// Return an empty result + found status if not found.
 	return r, found
 }
 
 func matchLink(archive string, result *results.Result) {
-	vexp := regexp.MustCompile(`.[.].[.].`)
-	updatedLink := vexp.ReplaceAllString(archive, strings.Join(result.Version, "."))
+	if archive != "" {
+		vexp := regexp.MustCompile(`.[.].[.].`)
+		updatedLink := vexp.ReplaceAllString(archive, strings.Join(result.Version, "."))
 
-	resp, err := http.Head(updatedLink)
-	if err != nil {
-		return
+		resp, err := http.Head(updatedLink)
+		if err != nil {
+			return
+		}
+		if resp.StatusCode != http.StatusOK {
+			return
+		}
+		result.Location = updatedLink
 	}
-	if resp.StatusCode != http.StatusOK {
-		return
-	}
-	result.Location = updatedLink
 }
