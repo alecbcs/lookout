@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/alecbcs/cuppa/version"
+	"github.com/DataDrake/cuppa/version"
 )
 
 // Entry contains the information for a single package from the database.

@@ -5,9 +5,9 @@ import (
 	"regexp"
 	"strings"
 
-	cuppa "github.com/alecbcs/cuppa/config"
-	"github.com/alecbcs/cuppa/providers"
-	"github.com/alecbcs/cuppa/results"
+	cuppa "github.com/DataDrake/cuppa/config"
+	"github.com/DataDrake/cuppa/providers"
+	"github.com/DataDrake/cuppa/results"
 
 	"log"
 )
@@ -25,18 +25,18 @@ func CheckUpdate(archive string) (*results.Result, bool) {
 	found := false
 	// Iterate through all available providers that CUPPA supports.
 	for _, p := range providers.All() {
-		name := p.Match(archive)
-		if name == "" {
+		match := p.Match(archive)
+		if len(match) == 0 {
 			continue
 		}
 
 		// GitHub will never work without a token
-		if p.Name() == "GitHub" && cuppa.Global.Github.Key == "" {
+		if p.String() == "GitHub" && cuppa.Global.Github.Key == "" {
 			log.Fatal("A GitHub token is required in your $HOME/.config/lookout/lookout.config")
 		}
 
 		// Pull the latest (non-beta) release from repository.
-		r, err := p.Latest(name)
+		r, err := p.Latest(match)
 		if err != nil {
 			continue
 		}

@@ -4,8 +4,8 @@ go 1.16
 
 require (
 	github.com/BurntSushi/toml v0.3.1
-	github.com/DataDrake/cli-ng/v2 v2.0.1
-	github.com/alecbcs/cuppa v1.1.1-0.20210125155057-a87bc78dbc5e
+	github.com/DataDrake/cli-ng/v2 v2.0.2
+	github.com/DataDrake/cuppa v1.1.1-0.20210306020014-480be4e72c83
 	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/gookit/color v1.3.7
@@ -14,5 +14,6 @@ require (
 	github.com/jlaffaye/ftp v0.0.0-20201112195030-9aae4d151126 // indirect
 	github.com/mattn/go-sqlite3 v1.10.0
 	github.com/tcnksm/go-latest v0.0.0-20170313132115-e3007ae9052e
+	golang.org/x/net v0.0.0-20181114220301-adae6a3d119a // indirect
 	gopkg.in/yaml.v2 v2.4.0
 )

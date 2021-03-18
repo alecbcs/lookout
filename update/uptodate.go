@@ -1,7 +1,7 @@
 package update
 
 import (
-	"github.com/alecbcs/cuppa/version"
+	"github.com/DataDrake/cuppa/version"
 )
 
 // UpToDate returns a boolean to describe is the application is up-to-date.

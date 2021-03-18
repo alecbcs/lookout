@@ -6,7 +6,7 @@ import (
 	"github.com/alecbcs/lookout/ui"
 
 	"github.com/DataDrake/cli-ng/v2/cmd"
-	"github.com/alecbcs/cuppa/version"
+	"github.com/DataDrake/cuppa/version"
 	"github.com/alecbcs/lookout/config"
 	"github.com/alecbcs/lookout/database"
 	"github.com/alecbcs/lookout/results"
