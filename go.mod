@@ -14,6 +14,7 @@ require (
 	github.com/jlaffaye/ftp v0.0.0-20201112195030-9aae4d151126 // indirect
 	github.com/mattn/go-sqlite3 v1.10.0
 	github.com/tcnksm/go-latest v0.0.0-20170313132115-e3007ae9052e
-	golang.org/x/net v0.0.0-20181114220301-adae6a3d119a // indirect
 	gopkg.in/yaml.v2 v2.4.0
 )
+
+replace github.com/DataDrake/cuppa => github.com/autamus/cuppa v1.1.1-0.20210418004658-d449c9b8325c
