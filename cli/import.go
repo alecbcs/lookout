@@ -61,8 +61,8 @@ func ImportRun(r *cmd.Root, c *cmd.Sub) {
 		result.Location,
 		result.Version,
 		data.Source,
-		version.NewVersion(data.Version),
-		update.UpToDate(result.Version, version.NewVersion(data.Version)))
+		version.Version{data.Version},
+		update.UpToDate(result.Version, version.Version{data.Version}))
 	entry.Dependencies = data.Dependencies
 	database.Add(db, entry)
 	database.ImportDeps(db, entry.ID, entry.Dependencies)

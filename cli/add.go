@@ -46,8 +46,8 @@ func AddRun(r *cmd.Root, c *cmd.Sub) {
 		result.Location,
 		result.Version,
 		args.URL,
-		version.NewVersion(args.Version),
-		update.UpToDate(result.Version, version.NewVersion(args.Version)))
+		version.Version{args.Version},
+		update.UpToDate(result.Version, version.Version{args.Version}))
 	database.Add(db, entry)
 	ui.PrintCyan(args.ID, "ADDED")
 }

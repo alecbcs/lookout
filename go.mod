@@ -17,4 +17,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0
 )
 
-replace github.com/DataDrake/cuppa => github.com/autamus/cuppa v1.1.1-0.20210418004658-d449c9b8325c
+replace github.com/DataDrake/cuppa => github.com/autamus/cuppa v1.1.1-0.20210418064714-36f7ae9631fa

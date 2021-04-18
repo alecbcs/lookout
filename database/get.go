@@ -52,9 +52,9 @@ func Get(db *sql.DB, id string) (*results.Entry, error) {
 	result = results.New(
 		id,
 		latestURL,
-		version.NewVersion(latestVersion),
+		version.Version{latestVersion},
 		currentURL,
-		version.NewVersion(currentVersion),
+		version.Version{currentVersion},
 		upToDate)
 	result.Dependencies = deps
 	return result, nil
@@ -90,9 +90,9 @@ func GetAll(db *sql.DB, output chan *results.Entry) {
 		entries = append(entries, results.New(
 			id,
 			latestURL,
-			version.NewVersion(latestVersion),
+			version.Version{latestVersion},
 			currentURL,
-			version.NewVersion(currentVersion),
+			version.Version{currentVersion},
 			upToDate))
 	}
 	for _, entry := range entries {
