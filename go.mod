@@ -14,11 +14,11 @@ require (
 	github.com/inconshreveable/go-update v0.0.0-20160112193335-8152e7eb6ccf
 	github.com/klauspost/compress v1.12.2 // indirect
 	github.com/mattn/go-sqlite3 v1.14.7
-	github.com/prometheus/common v0.22.0 // indirect
+	github.com/prometheus/common v0.25.0 // indirect
 	github.com/tcnksm/go-latest v0.0.0-20170313132115-e3007ae9052e
-	golang.org/x/net v0.0.0-20210423184538-5f58ad60dda6 // indirect
-	golang.org/x/sys v0.0.0-20210426230700-d19ff857e887 // indirect
+	golang.org/x/net v0.0.0-20210520170846-37e1c6afe023 // indirect
+	golang.org/x/sys v0.0.0-20210521090106-6ca3eb03dfc2 // indirect
 	gopkg.in/yaml.v2 v2.4.0
 )
 
-replace github.com/DataDrake/cuppa => github.com/autamus/cuppa v1.1.1-0.20210427204821-c7e379e1e318
+replace github.com/DataDrake/cuppa => github.com/autamus/cuppa v1.1.1-0.20210507175721-5e45e84fb3cd
